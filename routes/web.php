@@ -29,3 +29,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Yg di bawah ini temporary buat testing, hapus aja nanti
+Route::get('/form-booking', function(){
+    return view('frontend.create-booking');
+});
+Route::get('/tes-dashboard', function(){
+    return view('admin.dashboard');
+});
