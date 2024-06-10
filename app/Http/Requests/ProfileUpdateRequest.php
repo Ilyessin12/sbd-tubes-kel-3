@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -15,9 +15,10 @@ class ProfileUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        //diubah tadi field nya dari name sama email ke nama_customer sama email_customer
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'nama_customer' => ['required', 'string', 'max:255'],
+            'email_customer' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(Customer::class)->ignore($this->user()->id_customer, 'id_customer')],
         ];
     }
 }

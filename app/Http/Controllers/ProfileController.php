@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -26,13 +27,23 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $validated = $request->validated();
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
 
-        $request->user()->save();
+        $sql = "UPDATE `customer` SET `nama_customer` = ?, `email_customer` = ?, `telp_customer` = ?, `password` = ? WHERE `id_customer` = ?";
+        //mengapa pakai params? karena kita validasi dlu 
+        //bacanya tuh gini : kalo nama_customer ada di validated, maka pake validated, kalo ga ada pake user->nama_customer
+        //apa itu validated? itu adalah data yang udah di validasi di ProfileUpdateRequest
+        $params = [
+            $validated['nama_customer'] ?? $user->nama_customer,
+            $validated['email_customer'] ?? $user->email_customer,
+            $validated['telp_customer'] ?? $user->telp_customer,
+            $validated['password'] ?? $user->password,
+            $user->id_customer,
+        ];
+
+        DB::update($sql, $params);
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
@@ -50,7 +61,7 @@ class ProfileController extends Controller
 
         Auth::logout();
 
-        $user->delete();
+        DB::delete("DELETE FROM `customer` WHERE `id_customer` = ?", [$user->id_customer]);
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
