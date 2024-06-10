@@ -1,7 +1,7 @@
 @extends('komponen.layout-admin')
 
 @section('heading')
-  Welkam Atmin
+  Welkam Atmin hehehe
 @endsection
 
 @section('content')
