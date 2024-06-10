@@ -1,9 +1,11 @@
-<x-layout>
-  <x-slot:heading>
-    The Bee Movie
-  </x-slot:heading>
+@extends('komponen.layout')
 
-  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+@section('heading')
+  The Bee Movie
+@endsection
+
+@section('content')
+<div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <div class="container">
         <p>According to all known laws of aviation, there is no way a bee should be able to fly.
 Its wings are too small to get its fat little body off the ground.
@@ -1370,4 +1372,4 @@ All right. Take ten, everybody. Wrap it up, guys.
 I had virtually no rehearsal for that.</p>    
     </div>
 </div>
-</x-layout>
+@endsection
