@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -11,21 +10,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer', function (Blueprint $table) {
-            $table->id('id_customer');
-            $table->string('nama_customer');
-            $table->string('email_customer')->unique();
-            $table->string('telp_customer')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('status_member')->default('non-member');
-            $table->date('tanggal_mulai')->nullable();
-            $table->date('tanggal_selesai')->nullable();
-            $table->string('role')->default('user');
-            $table->integer(('kuota_member'))->default(0);
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        DB::statement("
+            CREATE TABLE customer (
+                id_customer BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                nama_customer VARCHAR(255) NOT NULL,
+                email_customer VARCHAR(255) UNIQUE NOT NULL,
+                telp_customer VARCHAR(255) UNIQUE NOT NULL,
+                email_verified_at TIMESTAMP NULL,
+                password VARCHAR(255) NOT NULL,
+                status_member VARCHAR(255) NOT NULL DEFAULT 'non-member',
+                tanggal_mulai DATE NULL,
+                tanggal_selesai DATE NULL,
+                role VARCHAR(255) NOT NULL DEFAULT 'user',
+                kuota_member INT NOT NULL DEFAULT 0,
+                remember_token VARCHAR(100) NULL,
+                created_at TIMESTAMP NULL,
+                updated_at TIMESTAMP NULL
+            ) ENGINE=InnoDB;
+        ");
     }
 
     /**
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer');
+        DB::statement("DROP TABLE IF EXISTS customer;");
     }
 };
