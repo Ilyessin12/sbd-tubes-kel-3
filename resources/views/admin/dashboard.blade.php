@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-
+  gorrilla XD
 @endsection
