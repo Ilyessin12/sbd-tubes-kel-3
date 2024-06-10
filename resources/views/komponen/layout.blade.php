@@ -55,7 +55,7 @@
                 @endguest
 
                 @auth
-                  <x-nav-link href="/editProf" :active="request()->is('register')">Edit Profile</x-nav-link>
+                  <x-nav-link href="/profile" :active="request()->is('register')">Edit Profile</x-nav-link>
                   <form method="POST" action="/logout">
                     @csrf
 
