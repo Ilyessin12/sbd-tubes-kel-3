@@ -18,16 +18,23 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="nama_customer" :value="__('Nama')" />
+            <x-text-input id="nama_customer" name="nama_customer" type="text" class="mt-1 block w-full" :value="old('nama_customer', $user->nama_customer)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('nama_customer')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <x-input-label for="telp_customer" :value="__('Telepon')" />
+            <x-text-input id="telp_customer" name="telp_customer" type="text" class="mt-1 block w-full" :value="old('telp_customer', $user->telp_customer)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('telp_customer')" />
+        </div>
 
+        <div>
+            <x-input-label for="email_customer" :value="__('Email')" />
+            <x-text-input id="email_customer" name="email_customer" type="email_customer" class="mt-1 block w-full" :value="old('email_customer', $user->email_customer)" required autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('email_customer')" />
+
+            <!-- ignore bagian ini, kita tidak memakai fitur ini -->
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
