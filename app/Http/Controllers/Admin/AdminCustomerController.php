@@ -10,8 +10,11 @@ class AdminCustomerController extends Controller
 {
     public function index()
     {
-        //nanti return viewnya buat tampilan utama customer, usahain pisahin pake folder customer
-        // return view('admin.customer.index');
+        //kita ambil dulu data yang ada di database untuk tabel customer, abis itu kita kasih data nya ke view
+        // $customers = DB::select('SELECT * FROM customer');
+
+        //nanti return viewnya buat tampilan utama customer sekaligus sama data customernya, usahain pisahin pake folder customer
+        // return view('admin.customer.index', compact('customers'));
     }
 
     public function create()
