@@ -67,12 +67,12 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{url('/')}}">Dashboard</a></li>
-          <li><a class="nav-link scrollto" href="{{url('/booking')}}">Booking</a></li>
-          <li><a class="nav-link scrollto" href="{{url('/customers')}}">Customers</a></li>
-          <li><a class="nav-link scrollto" href="{{url('/ekstra')}}">Ekstra</a></li>
-          <li><a class="nav-link scrollto" href="{{url('/fasilitas')}}">Fasilitas</a></li>
-          <li><a class="nav-link scrollto" href="{{url('/voucher')}}">Voucher</a></li>
+          <li><a class="nav-link scrollto active" href="{{url('/admin/dashboard')}}">Dashboard</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/admin/booking')}}">Booking</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/admin/customers')}}">Customers</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/admin/ekstra')}}">Ekstra</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/admin/fasilitas')}}">Fasilitas</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/admin/voucher')}}">Voucher</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
