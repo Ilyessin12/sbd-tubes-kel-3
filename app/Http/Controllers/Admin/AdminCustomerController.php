@@ -69,6 +69,9 @@ class AdminCustomerController extends Controller
 
     public function edit($id)
     {
+        //ambil data customer yang mau diedit, terus kasih ke view
+        // $customer = DB::select('SELECT * FROM customer WHERE id_customer = ?', [$id])[0];
+
         //nanti return viewnya buat form edit customer, usahain pisahin pake folder customer
         // return view('admin.customer.edit');
     }
