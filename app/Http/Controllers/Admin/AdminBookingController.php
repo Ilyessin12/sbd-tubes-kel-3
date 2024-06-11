@@ -10,7 +10,7 @@ class AdminBookingController extends Controller
 {
     public function index()
     {
-        $bookings = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking 
+        $bookings = DB::select('SELECT booking.*, customer.nama_customer, fasilitas.nama, voucher.nama_voucher, ekstra.nama FROM booking 
         LEFT JOIN customer ON booking.id_customer = customer.id_customer 
         LEFT JOIN fasilitas ON booking.id_fasilitas = fasilitas.id_fasilitas
         LEFT JOIN voucher ON booking.id_voucher = voucher.id_voucher
@@ -63,7 +63,7 @@ class AdminBookingController extends Controller
 
     public function edit($id)
     {
-        $bookings = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking 
+        $bookings = DB::select('SELECT booking.*, customer.nama_customer, fasilitas.nama, voucher.nama_voucher, ekstra.nama FROM booking 
         LEFT JOIN customer ON booking.id_customer = customer.id_customer 
         LEFT JOIN fasilitas ON booking.id_fasilitas = fasilitas.id_fasilitas
         LEFT JOIN voucher ON booking.id_voucher = voucher.id_voucher
