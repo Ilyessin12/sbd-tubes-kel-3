@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminVoucherController extends Controller
 {
@@ -43,7 +44,7 @@ class AdminVoucherController extends Controller
     {
         $voucher = DB::select('SELECT * FROM voucher WHERE id_voucher = ?', [$id])[0];
 
-        return view('admin.customer.edit');
+        return view('admin.voucher.edit');
     }
 
     public function update(Request $request, $id)
@@ -55,11 +56,10 @@ class AdminVoucherController extends Controller
             'tanggal_kadaluarsa' => 'nullable|date|after_or_equal:today',
         ]);
 
-        DB::update('UPDATE voucher SET nama_voucher = ?, persentase_diskon = ?, telp_customer = ?, telp_customer = ?, tanggal_mulai = ?, tanggal_selesai = ?
+        DB::update('UPDATE voucher SET nama_voucher = ?, persentase_diskon = ?, tanggal_mulai = ?, tanggal_selesai = ?
         WHERE id_voucher = ?', [
             $request->nama_voucher,
             $request->persentase_diskon,
-            $request->telp_customer,
             $request->tanggal_mulai,
             $request->tanggal_selesai,
         ]);
