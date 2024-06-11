@@ -12,7 +12,7 @@ class AdminVoucherController extends Controller
     {
         $vouchers = DB::select('SELECT * FROM voucher');
 
-        return view('admin.voucher.index', compact('voucher'));
+        return view('admin.voucher.index', compact('vouchers'));
     }
 
     public function create()

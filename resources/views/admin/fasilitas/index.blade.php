@@ -14,26 +14,24 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama Pasien</th>
-                    <th scope="col">Nama Dokter</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Diagnosa</th>
-                    <th scope="col" width="200px">Catatan</th>
-                    <th scope="col" width="150px">Resep Obat</th>
+                    <th scope="col">Nama Fasilitas</th>
+                    <th scope="col">Deskripsi</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Jenis Kegiatan</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
+              @foreach ($fasilitas as $row)
+              <tr>
+                <td>{{isset($i) ? ++$i : $i = 1}}</td>
+                <td>{{$row->nama}}</td>
+                <td>{{$row->deskripsi}}</td>
+                <td>{{$row->harga}}</td>
+                <td>{{$row->jenis_kegiatan}}</td>
+                <td>...</td>
                 </tr>
+              @endforeach
             </tbody>
         </table>
 

@@ -10,7 +10,8 @@
                     <h2>Tambah Fasilitas</h2>
                 </div>
 
-                <form action="/admin/fasilitas" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="{{url('/admin/fasilitas')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                    @csrf
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="id_fasilitas" id="id_fasilitas">
                     <div class="mb-3">
@@ -33,7 +34,7 @@
                         <input type="text" class="form-control" id="jenis_kegiatan" name="jenis_kegiatan">
                     </div>
 
-                    <a href="admin.php"><button type="button" class="btn btn-secondary"
+                    <a href="{{('/admin/fasilitas')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
                         form="form-add">Tambah Fasilitas</button>

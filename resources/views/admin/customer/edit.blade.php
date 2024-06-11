@@ -7,69 +7,62 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Booking</h2>
+                    <h2>Tambah Customer</h2>
                 </div>
 
-                <form action="#" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="/admin/customer" method="patch" role="form" id="form-add" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id_customer" id="id_customer">
                     <div class="mb-3">
-                        <label for="nama_dokter" class="form-label">Nama Dokter</label>
-                        <input type="text" class="form-control" id="nama_dokter" name="nama_dokter">
+                        <label for="nama_customer" class="form-label">Nama Customer</label>
+                        <input type="text" class="form-control" id="nama_customer" name="nama_customer">
                     </div>
                     <div class="mb-3">
-                        <label for="no_telp_dokter" class="form-label">No Telp</label>
-                        <input type="text" class="form-control" id="no_telp_dokter" name="no_telp_dokter">
+                        <label for="email_customer" class="form-label">Email Customer</label>
+                        <input type="text" class="form-control" id="email_customer" name="email_customer">
                     </div>
                     <div class="mb-3">
-                        <label for="jalan" class="form-label" id="lbl_jalan">Jalan</label>
-                        <input type="text" class="form-control" name="address[jalan]" id="register_jalan">
+                        <label for="telp_customer" class="form-label">Telepon Customer</label>
+                        <input type="text" class="form-control" id="telp_customer" name="telp_customer">
                     </div>
                     <div class="mb-3">
-                        <label for="provinsi" class="form-label" id="lbl_provinsi">Provinsi</label>
-                        <select class="form-control" name="address[provinsi]" id="register_provinsi"></select>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
                     </div>
-
                     <div class="mb-3">
-                        <label for="kabupaten" class="form-label" id="lbl_kabupaten">Kabupaten/Kota</label>
-                        <select class="form-control" name="address[kabupaten]" id="register_kabupaten"></select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="kecamatan" class="form-label" id="lbl_kecamatan">Kecamatan</label>
-                        <select class="form-control" name="address[kecamatan]" id="register_kecamatan"></select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="kelurahan" class="form-label" id="lbl_kelurahan">Kelurahan</label>
-                        <select class="form-control" name="address[kelurahan]" id="register_kelurahan"></select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="jenis_kelamin_dokter">Jenis Kelamin</label>
-                        <select class="form-select" aria-label="Category" id="jenis_kelamin_dokter"
-                            name="jenis_kelamin_dokter" required>
+                        <label for="status_member">Status Member</label>
+                        <select class="form-select" aria-label="Category" id="status_member"
+                            name="status_member" required>
                             <option value="" selected disabled hidden>Pilih</option>
-                            <option value="P">Perempuan</option>
-                            <option value="L">Laki-laki</option>
+                            <option value="member">Member</option>
+                            <option value="non-member">Non-member</option>
                         </select>
                     </div>
-
                     <div class="mb-3">
-                        <label for="departmen">Department</label>
-                        <select class="form-select" aria-label="Category" id="departmen" name="departmen" required>
+                        <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
+                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
+                        <input type="date" class="form-control" id="tanggal_selesai" name="tanggal_selesai">
+                    </div>
+                    <div class="mb-3">
+                        <label for="role">Role</label>
+                        <select class="form-select" aria-label="Category" id="role"
+                            name="role" required>
                             <option value="" selected disabled hidden>Pilih</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
                         </select>
                     </div>
-
                     <div class="mb-3">
-                        <label for="foto_dokter" class="form-label">Foto</label>
-                        <input class="form-control" type="file" id="foto_dokter" name="foto_dokter" required>
+                        <label for="kuota_member" class="form-label">Kuota Member</label>
+                        <input type="text" class="form-control" id="kuota_member" name="kuota_member">
                     </div>
-
                     <a href="admin.php"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
-                        form="form-add">Tambah Dokter</button>
+                        form="form-add">Tambah Customer</button>
                 </form>
 
             </div>

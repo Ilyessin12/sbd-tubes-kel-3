@@ -14,26 +14,36 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama Pasien</th>
-                    <th scope="col">Nama Dokter</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Diagnosa</th>
-                    <th scope="col" width="200px">Catatan</th>
-                    <th scope="col" width="150px">Resep Obat</th>
+                    <th scope="col">Status Booking</th>
+                    <th scope="col">Tanggal Booking</th>
+                    <th scope="col">Jam Mulai</th>
+                    <th scope="col">Jam Selesai</th>
+                    <th scope="col">Nama Customer</th>
+                    <th scope="col">Fasilitas</th>
+                    <th scope="col">Voucher</th>
+                    <th scope="col">Ekstra</th>
+                    <th scope="col">Jumlah Ekstra</th>
+                    <th scope="col">Total Harga</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</td>
+              @foreach ($bookings as $row)
+              <tr>
+                    <td>{{isset($i) ? ++$i : $i = 1}}</td>
+                    <td>{{$row->status_booking}}</td>
+                    <td>{{$row->tanggal_booking}}</td>
+                    <td>{{$row->jam_mulai}}</td>
+                    <td>{{$row->jam_selesai}}</td>
+                    <td>{{$row->customers}}</td>
+                    <td>{{$row->fasilitas}}</td>
+                    <td>{{$row->vouchers}}</td>
+                    <td>{{$row->extras}}</td>
+                    <td>{{$row->jumlah_ekstra}}</td>
+                    <td>{{$row->total_harga}}</td>
                     <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
+                    </tr>
+              @endforeach
             </tbody>
         </table>
 

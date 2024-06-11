@@ -10,8 +10,8 @@
                     <h2>Tambah Voucher</h2>
                 </div>
 
-                <form action="/admin/voucher" method="post" role="form" id="form-add" enctype="multipart/form-data">
-                    <input type="hidden" name="id" id="id">
+                <form action="{{url('/admin/voucher')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                    @csrf
                     <input type="hidden" name="id_voucher" id="id_voucher">
                     <div class="mb-3">
                         <label for="nama_voucher" class="form-label">Nama Voucher</label>
@@ -19,8 +19,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="presentase_diskon" class="form-label">Presentase Diskon</label>
-                        <input type="number" class="form-control" name="presentase_diskon" id="presentase_diskon">
+                        <label for="persentase_diskon" class="form-label">Persentase Diskon</label>
+                        <input type="number" class="form-control" name="persentase_diskon" id="persentase_diskon">
                     </div>
 
                     <div class="mb-3">
@@ -33,7 +33,7 @@
                         <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa">
                     </div>
 
-                    <a href="admin.php"><button type="button" class="btn btn-secondary"
+                    <a href="{{('/admin/voucher')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
                         form="form-add">Tambah Voucher</button>
