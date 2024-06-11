@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminEkstraController;
+use App\Http\Controllers\Admin\AdminFasilitasController;
+use App\Http\Controllers\Admin\AdminVoucherController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +36,31 @@ Route::get('/riwayat', [RiwayatController::class, 'index']);
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('admin');
 //untuk redirect ke dashboard jika ada yang mengetik "/admin" di url
 Route::redirect('/admin', '/admin/dashboard');
+
+
+//Ekstra
+Route::get('/admin/ekstra', [AdminEkstraController::class, 'index'])->middleware('admin');
+Route::get('/admin/ekstra/create', [AdminEkstraController::class, 'create'])->middleware('admin');
+Route::post('/admin/ekstra', [AdminEkstraController::class, 'store'])->middleware('admin');
+Route::get('/admin/ekstra/{id}/edit', [AdminEkstraController::class, 'edit'])->middleware('admin');
+Route::patch('/admin/ekstra', [AdminEkstraController::class, 'update'])->middleware('admin');
+Route::delete('/admin/ekstra', [AdminEkstraController::class, 'delete'])->middleware('admin');
+
+//Fasilitas
+Route::get('/admin/fasilitas', [AdminFasilitasController::class, 'index'])->middleware('admin');
+Route::get('/admin/fasilitas/create', [AdminFasilitasController::class, 'create'])->middleware('admin');
+Route::post('/admin/fasilitas', [AdminFasilitasController::class, 'store'])->middleware('admin');
+Route::get('/admin/fasilitas/{id}/edit', [AdminFasilitasController::class, 'edit'])->middleware('admin');
+Route::patch('/admin/fasilitas', [AdminFasilitasController::class, 'update'])->middleware('admin');
+Route::delete('/admin/fasilitas', [AdminFasilitasController::class, 'delete'])->middleware('admin');
+
+//Voucher
+Route::get('/admin/voucher', [AdminVoucherController::class, 'index'])->middleware('admin');
+Route::get('/admin/voucher/create', [AdminVoucherController::class, 'create'])->middleware('admin');
+Route::post('/admin/voucher', [AdminVoucherController::class, 'store'])->middleware('admin');
+Route::get('/admin/voucher/{id}/edit', [AdminVoucherController::class, 'edit'])->middleware('admin');
+Route::patch('/admin/voucher', [AdminVoucherController::class, 'update'])->middleware('admin');
+Route::delete('/admin/voucher', [AdminVoucherController::class, 'delete'])->middleware('admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

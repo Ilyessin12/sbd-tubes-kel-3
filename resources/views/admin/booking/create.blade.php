@@ -10,11 +10,12 @@
                     <h2>Booking</h2>
                 </div>
 
-                <form action="#" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="/create-booking" method="post" role="form" id="form-add" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id_customer" id="id_customer" value="{{}}">
                     <div class="mb-3">
-                        <label for="nama_dokter" class="form-label">Nama Dokter</label>
-                        <input type="text" class="form-control" id="nama_dokter" name="nama_dokter">
+                        <label for="id_customer" class="form-label">Id Customer</label>
+                        <input type="text" class="form-control" id="id_customer" name="id_customer">
                     </div>
                     <div class="mb-3">
                         <label for="no_telp_dokter" class="form-label">No Telp</label>

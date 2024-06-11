@@ -14,24 +14,21 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama Pasien</th>
-                    <th scope="col">Nama Dokter</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Diagnosa</th>
-                    <th scope="col" width="200px">Catatan</th>
-                    <th scope="col" width="150px">Resep Obat</th>
+                    <th scope="col">Nama Voucher</th>
+                    <th scope="col">Presentase Diskon</th>
+                    <th scope="col">Tanggal Mulai</th>
+                    <th scope="col">Tanggal Kadaluarsa</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+              @foreach($voucher as $vouchers)
                 <tr>
                     <th scope="row">1</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
+                    <td>{{$vouchers->nama_voucher}}</td>
+                    <td>{{$vouchers->presentasi_diskon}}</td>
+                    <td>{{$vouchers->tanggal_mulai}}</td>
+                    <td>{{$vouchers->tanggal_kadaluarsa}}</td>
                     <td>...</td>
                 </tr>
             </tbody>

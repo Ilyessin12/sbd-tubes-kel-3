@@ -7,69 +7,36 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Booking</h2>
+                    <h2>Tambah Fasilitas</h2>
                 </div>
 
-                <form action="#" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="/admin/fasilitas" method="post" role="form" id="form-add" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id_fasilitas" id="id_fasilitas">
                     <div class="mb-3">
-                        <label for="nama_dokter" class="form-label">Nama Dokter</label>
-                        <input type="text" class="form-control" id="nama_dokter" name="nama_dokter">
-                    </div>
-                    <div class="mb-3">
-                        <label for="no_telp_dokter" class="form-label">No Telp</label>
-                        <input type="text" class="form-control" id="no_telp_dokter" name="no_telp_dokter">
-                    </div>
-                    <div class="mb-3">
-                        <label for="jalan" class="form-label" id="lbl_jalan">Jalan</label>
-                        <input type="text" class="form-control" name="address[jalan]" id="register_jalan">
-                    </div>
-                    <div class="mb-3">
-                        <label for="provinsi" class="form-label" id="lbl_provinsi">Provinsi</label>
-                        <select class="form-control" name="address[provinsi]" id="register_provinsi"></select>
+                        <label for="nama" class="form-label">Nama Fasilitas</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
                     </div>
 
                     <div class="mb-3">
-                        <label for="kabupaten" class="form-label" id="lbl_kabupaten">Kabupaten/Kota</label>
-                        <select class="form-control" name="address[kabupaten]" id="register_kabupaten"></select>
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <textarea name="deskripsi" id="deskripsi" rows="3" class="form-control"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="harga" class="form-label" id="harga">Harga</label>
+                        <input type="number" class="form-control" name="harga" id="harga">
                     </div>
 
                     <div class="mb-3">
-                        <label for="kecamatan" class="form-label" id="lbl_kecamatan">Kecamatan</label>
-                        <select class="form-control" name="address[kecamatan]" id="register_kecamatan"></select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="kelurahan" class="form-label" id="lbl_kelurahan">Kelurahan</label>
-                        <select class="form-control" name="address[kelurahan]" id="register_kelurahan"></select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="jenis_kelamin_dokter">Jenis Kelamin</label>
-                        <select class="form-select" aria-label="Category" id="jenis_kelamin_dokter"
-                            name="jenis_kelamin_dokter" required>
-                            <option value="" selected disabled hidden>Pilih</option>
-                            <option value="P">Perempuan</option>
-                            <option value="L">Laki-laki</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="departmen">Department</label>
-                        <select class="form-select" aria-label="Category" id="departmen" name="departmen" required>
-                            <option value="" selected disabled hidden>Pilih</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="foto_dokter" class="form-label">Foto</label>
-                        <input class="form-control" type="file" id="foto_dokter" name="foto_dokter" required>
+                        <label for="jenis_kegiatan" class="form-label">Jenis Kegiatan</label>
+                        <input type="text" class="form-control" id="jenis_kegiatan" name="jenis_kegiatan">
                     </div>
 
                     <a href="admin.php"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
-                        form="form-add">Tambah Dokter</button>
+                        form="form-add">Tambah Fasilitas</button>
                 </form>
 
             </div>
