@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 //Bagian Controller Frontend
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\BookingController;
+use App\Http\Controllers\Frontend\RiwayatController;
 
 //Bagian Controller Admin
 use App\Http\Controllers\Admin\DashboardController;
