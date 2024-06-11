@@ -10,12 +10,11 @@ class AdminBookingController extends Controller
 {
     public function index()
     {
-        //yang di left join tabelnya tuh yang foreign key, berarti ada 4 tabel
-        //customer, fasilitas, voucher, ekstra
         $bookings = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking 
-        LEFT JOIN mobil ON booking.mobil_id = mobil.id 
-        LEFT JOIN users ON booking.user_id = users.id 
-        LEFT JOIN driver ON booking.driver_id = driver.id');
+        LEFT JOIN customer ON booking.id_customer = customer.id_customer 
+        LEFT JOIN fasilitas ON booking.id_fasilitas = fasilitas.id_fasilitas
+        LEFT JOIN voucher ON booking.id_voucher = voucher.id_voucher
+        LEFT JOIN ekstra ON booking.id_ekstra = ekstra.id_ekstra');
         
         return view('admin.booking.index', compact('bookings'));
     }
@@ -64,12 +63,11 @@ class AdminBookingController extends Controller
 
     public function edit($id)
     {
-        //yang di left join tabelnya tuh yang foreign key, berarti ada 4 tabel
-        //customer, fasilitas, voucher, ekstra
         $bookings = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking 
-        LEFT JOIN mobil ON booking.mobil_id = mobil.id 
-        LEFT JOIN users ON booking.user_id = users.id 
-        LEFT JOIN driver ON booking.driver_id = driver.id 
+        LEFT JOIN customer ON booking.id_customer = customer.id_customer 
+        LEFT JOIN fasilitas ON booking.id_fasilitas = fasilitas.id_fasilitas
+        LEFT JOIN voucher ON booking.id_voucher = voucher.id_voucher
+        LEFT JOIN ekstra ON booking.id_ekstra = ekstra.id_ekstra
         WHERE id_booking = ?', [$id])[0];
 
         $customers = DB::select('SELECT id_customer, nama_customer FROM customer');

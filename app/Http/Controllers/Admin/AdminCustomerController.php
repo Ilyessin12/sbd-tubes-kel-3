@@ -66,11 +66,6 @@ class AdminCustomerController extends Controller
     {
         $request->validate([
             'nama_customer' => 'required|string|max:255',
-            // unique:customer,email_customer,' . $id . ',id_customer' berfungsi agar email yang diinput tidak dianggap duplicate
-            // cara kerjanya tuh dia bakal ngecek email_customer yang diinput, kalau ada di database, dia bakal ngecek
-            // apakah email_customer yang diinput itu sama dengan email_customer yang ada di database dengan id_customer yang
-            // tidak sama dengan id_customer yang sedang diedit, kalau sama, dia bakal ngelewatinya, kalau beda, dia bakal
-            // ngecek apakah email_customer yang diinput itu sudah ada di database atau belum
             'email_customer' => 'required|string|email|max:255|unique:customer,email_customer,' . $id . ',id_customer',
             'telp_customer' => 'required|string|max:20',
             'password' => 'required|string|min:8',
