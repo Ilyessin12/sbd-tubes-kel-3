@@ -26,7 +26,7 @@ class AdminVoucherController extends Controller
             'nama_voucher' => 'required|string|max:255',
             'persentase_diskon' => 'required|integer',
             'tanggal_mulai' => 'nullable|date|after_or_equal:today',
-            'tanggal_kadaluarsa' => 'nullable|date|after_or_equal:today',
+            'tanggal_kadaluarsa' => 'nullable|date|after:tanggal_mulai',
         ]);
 
         DB::insert('INSERT INTO voucher (nama_voucher, persentase_diskon, tanggal_mulai, tanggal_selesai)
@@ -52,8 +52,11 @@ class AdminVoucherController extends Controller
         $request->validate([
             'nama_voucher' => 'required|string|max:255',
             'persentase_diskon' => 'required|integer',
-            'tanggal_mulai' => 'nullable|date|after_or_equal:today',
-            'tanggal_kadaluarsa' => 'nullable|date|after_or_equal:today',
+            //required karena voucher harus ada tanggalnya, di database soalnnya NOT NULL
+            'tanggal_mulai' => 'required|date|after_or_equal:today',
+            //required karena voucher harus ada tanggalnya, di database soalnnya NOT NULL, dan tanggal kadaluarsanya harus
+            // setelah tanggal mulai
+            'tanggal_kadaluarsa' => 'required|date|after:today',
         ]);
 
         DB::update('UPDATE voucher SET nama_voucher = ?, persentase_diskon = ?, tanggal_mulai = ?, tanggal_selesai = ?
@@ -62,6 +65,7 @@ class AdminVoucherController extends Controller
             $request->persentase_diskon,
             $request->tanggal_mulai,
             $request->tanggal_selesai,
+            $id,
         ]);
 
         return redirect()->route('admin.voucher.index');
