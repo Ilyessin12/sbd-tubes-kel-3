@@ -10,8 +10,12 @@ class AdminBookingController extends Controller
 {
     public function index()
     {
-        $booking = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking LEFT JOIN mobil ON booking.mobil_id = mobil.id 
-        LEFT JOIN users ON booking.user_id = users.id LEFT JOIN driver ON booking.driver_id = driver.id');
+        //yang di left join tabelnya tuh yang foreign key, berarti ada 4 tabel
+        //customer, fasilitas, voucher, ekstra
+        $bookings = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking 
+        LEFT JOIN mobil ON booking.mobil_id = mobil.id 
+        LEFT JOIN users ON booking.user_id = users.id 
+        LEFT JOIN driver ON booking.driver_id = driver.id');
         
         return view('admin.booking.index', compact('bookings'));
     }
@@ -35,8 +39,8 @@ class AdminBookingController extends Controller
             'jam_mulai' => 'required|date_format:H:i',
             'jam_selesai' => 'required|date_format:H:i|after:jam_mulai',
             'total_harga' => 'required',
-            'id_customer' => 'nullable|integer|exists:customer,id_customer',
-            'id_fasilitas' => 'nullable|integer|exists:fasilitas,id_fasilitas',
+            'id_customer' => 'required|integer|exists:customer,id_customer',
+            'id_fasilitas' => 'required|integer|exists:fasilitas,id_fasilitas',
             'id_voucher' => 'nullable|integer|exists:voucher,id_voucher',
             'id_ekstra' => 'nullable|integer|exists:ekstra,id_ekstra',
         ]);
@@ -60,10 +64,20 @@ class AdminBookingController extends Controller
 
     public function edit($id)
     {
-        $booking = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking LEFT JOIN mobil ON booking.mobil_id = mobil.id 
-        LEFT JOIN users ON booking.user_id = users.id LEFT JOIN driver ON booking.driver_id = driver.id WHERE id_booking = ?', [$id])[0];
+        //yang di left join tabelnya tuh yang foreign key, berarti ada 4 tabel
+        //customer, fasilitas, voucher, ekstra
+        $bookings = DB::select('SELECT booking.*, mobil.nama_mobil, users.name, driver.nama FROM booking 
+        LEFT JOIN mobil ON booking.mobil_id = mobil.id 
+        LEFT JOIN users ON booking.user_id = users.id 
+        LEFT JOIN driver ON booking.driver_id = driver.id 
+        WHERE id_booking = ?', [$id])[0];
 
-        return view('admin.booking.edit', compact('booking', 'customers', 'fasilitas', 'vouchers', 'extras'));
+        $customers = DB::select('SELECT id_customer, nama_customer FROM customer');
+        $fasilitas = DB::select('SELECT id_fasilitas, nama FROM fasilitas');
+        $vouchers = DB::select('SELECT id_voucher, nama_voucher FROM voucher');
+        $extras = DB::select('SELECT id_ekstra, nama FROM ekstra');
+
+        return view('admin.booking.edit', compact('bookings', 'customers', 'fasilitas', 'vouchers', 'extras'));
     }
 
     public function update(Request $request, $id)
@@ -75,8 +89,8 @@ class AdminBookingController extends Controller
             'jam_mulai' => 'required|date_format:H:i',
             'jam_selesai' => 'required|date_format:H:i|after:jam_mulai',
             'total_harga' => 'required',
-            'id_customer' => 'nullable|integer|exists:customer,id_customer',
-            'id_fasilitas' => 'nullable|integer|exists:fasilitas,id_fasilitas',
+            'id_customer' => 'required|integer|exists:customer,id_customer',
+            'id_fasilitas' => 'required|integer|exists:fasilitas,id_fasilitas',
             'id_voucher' => 'nullable|integer|exists:voucher,id_voucher',
             'id_ekstra' => 'nullable|integer|exists:ekstra,id_ekstra',
         ]);
