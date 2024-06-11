@@ -26,6 +26,8 @@ Route::get('/', function () {
 
 //Routing untuk Bagian Frontend
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/booking', [BookingController::class, 'index']);
+Route::get('/riwayat', [RiwayatController::class, 'index']);
 
 //Routing untuk Bagian Admin
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('admin');
