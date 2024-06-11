@@ -75,8 +75,22 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="" class="appointment-btn scrollto">Login</a>
-      <a href="" class="appointment-btn scrollto">Register</a>
+      @if (Route::has('login'))
+          <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+              @auth
+              <a href="{{route('profile.edit')}}" class="appointment-btn scrollto">Profile</a>
+              <form method="post" action="{{route('logout')}}">@csrf <button class="appointment-btn scrollto" type="submit">Logout</button></form>
+              @else
+              <a href="{{route('login')}}" class="appointment-btn scrollto">Login</a>
+                  @if (Route::has('register'))
+                  <a href="{{route('register')}}" class="appointment-btn scrollto">Register</a>
+                  @endif
+              @endauth
+          </div>
+      @endif
+
+      
+      
 
     </div>
   </header><!-- End Header -->
