@@ -15,7 +15,7 @@ return new class extends Migration
                 id_customer BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 nama_customer VARCHAR(255) NOT NULL,
                 email_customer VARCHAR(255) UNIQUE NOT NULL,
-                telp_customer VARCHAR(255) UNIQUE NOT NULL,
+                telp_customer VARCHAR(255) NOT NULL,
                 email_verified_at TIMESTAMP NULL,
                 password VARCHAR(255) NOT NULL,
                 status_member VARCHAR(255) NOT NULL DEFAULT 'non-member',
