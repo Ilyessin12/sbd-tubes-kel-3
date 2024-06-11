@@ -1,4 +1,4 @@
-@extends('frontend.layout')
+@extends('admin.layout')
 @section('content')
   <main id="main" style="padding-top: 70px;">
 

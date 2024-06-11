@@ -54,4 +54,13 @@ Route::get('/form-booking', function(){
 Route::get('/tes-dashboard', function(){
     return view('admin.dashboard');
 });
+Route::get('/tes-admin/booking', function(){
+    return view('admin.booking.index');
+});
+Route::get('/tes-admin/voucher', function(){
+    return view('admin.voucher.index');
+});
+Route::get('/tes-admin/customer', function(){
+    return view('admin.customer.index');
+});
 */
