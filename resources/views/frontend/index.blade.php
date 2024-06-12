@@ -2,6 +2,12 @@
 @section('content')
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
+  <!-- Display Success Message -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
   <div class="container">
     <h1>Welcome to KitSakit</h1>
     <h2>Sini abang obatin</h2>

@@ -38,6 +38,9 @@ Route::get('/booking', [BookingController::class, 'index'])->name('frontend.book
 Route::post('/booking', [BookingController::class, 'store'])->name('frontend.booking.store');
 //redirect ke checkout setelah store
 Route::get('/checkout/{id}', [BookingController::class, 'checkout'])->name('frontend.checkout');
+//simulasi bayar
+Route::get('/checkout/pay/{id}', 'App\Http\Controllers\Frontend\BookingController@updateStatusAndRedirect')->name('booking.updateStatus');
+
 
 //Riwayat
 Route::get('/riwayat', [RiwayatController::class, 'index']);

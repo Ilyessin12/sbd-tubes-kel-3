@@ -52,11 +52,10 @@
                         <tr>
                             <td>Voucher</td>
                             <td> : </td>
-                            <td>{{ $voucher->nama_voucher ?? '-' }}</td>>
+                            <td>{{ $voucher->nama_voucher ?? '-' }}</td>
                         </tr>
                     </table>
-                    <button class="btn btn-primary mt-3" id="pay-button" >Bayar Sekarang</button>
-                    <div id="snap-container" class="snap-container"></div>
+                    <a href="{{ route('booking.updateStatus', ['id' => $booking->id_booking]) }}" class="btn btn-primary mt-3">Bayar Sekarang</a>
                 </div>
             </div>
         </div>

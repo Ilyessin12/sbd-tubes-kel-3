@@ -81,4 +81,12 @@ class BookingController extends Controller
 
         return view('frontend.checkout', compact('booking', 'fasilitas', 'voucher', 'ekstra', 'customer'));
     }
+    
+    public function updateStatusAndRedirect($id)
+    {
+        $sql = "UPDATE booking SET status_booking = ? WHERE id_booking = ?";
+        DB::update($sql, ['sukses', $id]);
+
+        return redirect('/')->with('success', 'Booking berhasil dibayar');
+    }
 }
