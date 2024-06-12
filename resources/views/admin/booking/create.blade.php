@@ -7,10 +7,19 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h2>Tambah Booking</h2>
                 </div>
 
-                <form action="{{url('/admin/booking')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="{{ route('admin.booking.store') }}" method="post" role="form" id="form-add" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id_booking" id="id_booking">
                     <div class="mb-3">
@@ -48,7 +57,7 @@
                         <select class="form-select" name="id_fasilitas" required>
                             <option value="" selected>Pilih</option>
                             @foreach ($fasilitas as $row)
-                                <option value="{{$row->id_fasilitas}}">{{($row->nama)}}</option>
+                                <option value="{{$row->id_fasilitas}}">{{($row->nama_fasilitas)}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -66,15 +75,14 @@
                         <select class="form-select" name="id_ekstra">
                             <option value="" selected>Pilih</option>
                             @foreach ($extras as $row)
-                                <option value="{{$row->id_ekstra}}">{{($row->nama)}}</option>
+                                <option value="{{$row->id_ekstra}}">{{($row->nama_ekstra)}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="jumlah_ekstra" class="form-label">Jumlah Ekstra</label>
-                        <input type="number" class="form-control" id="jumlah_ekstra" name="jumlah_ekstra">
+                        <input type="number" class="form-control" id="jumlah_ekstra" name="jumlah_ekstra" value="0">
                     </div>
-                    <input type="hidden" id="total_harga" name="total_harga">
                     <a href="{{url('/admin/booking')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
