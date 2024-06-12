@@ -22,9 +22,9 @@ class AdminBookingController extends Controller
     public function create()
     {
         $customers = DB::select('SELECT id_customer, nama_customer FROM customer');
-        $fasilitas = DB::select('SELECT id_fasilitas, nama FROM fasilitas');
+        $fasilitas = DB::select('SELECT id_fasilitas, nama_fasilitas FROM fasilitas');
         $vouchers = DB::select('SELECT id_voucher, nama_voucher FROM voucher');
-        $extras = DB::select('SELECT id_ekstra, nama FROM ekstra');
+        $extras = DB::select('SELECT id_ekstra, nama_ekstra FROM ekstra');
         
         return view('admin.booking.create', compact('customers', 'fasilitas', 'vouchers', 'extras'));
     }
