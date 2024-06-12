@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminEkstraController;
-use App\Http\Controllers\Admin\AdminFasilitasController;
-use App\Http\Controllers\Admin\AdminVoucherController;
-use App\Http\Controllers\Admin\AdminCustomerController;
-use App\Http\Controllers\Admin\AdminBookingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +10,11 @@ use App\Http\Controllers\Frontend\RiwayatController;
 
 //Bagian Controller Admin
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminEkstraController;
+use App\Http\Controllers\Admin\AdminFasilitasController;
+use App\Http\Controllers\Admin\AdminVoucherController;
+use App\Http\Controllers\Admin\AdminCustomerController;
+use App\Http\Controllers\Admin\AdminBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +30,16 @@ Route::get('/', function () {
 */
 
 //Routing untuk Bagian Frontend
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/booking', [BookingController::class, 'index']);
+// Beranda
+Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
+
+//Booking
+Route::get('/booking', [BookingController::class, 'index'])->name('frontend.booking');
+Route::post('/booking', [BookingController::class, 'store'])->name('frontend.booking.store');
+//redirect ke checkout setelah store
+Route::get('/checkout/{id}', [BookingController::class, 'checkout'])->name('frontend.checkout');
+
+//Riwayat
 Route::get('/riwayat', [RiwayatController::class, 'index']);
 
 //Routing untuk Bagian Admin
