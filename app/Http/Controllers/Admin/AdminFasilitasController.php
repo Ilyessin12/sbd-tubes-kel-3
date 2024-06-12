@@ -37,14 +37,14 @@ class AdminFasilitasController extends Controller
             $request->jenis_kegiatan,
         ]);
 
-        return redirect()->route('admin.fasilitas.index');
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil ditambahkan');
     }
 
     public function edit($id)
     {
         $fasilitas = DB::select('SELECT * FROM fasilitas WHERE id_fasilitas = ?', [$id])[0];
 
-        return view('admin.fasilitas.edit');
+        return view('admin.fasilitas.edit', compact('fasilitas'));
     }
 
     public function update(Request $request, $id)
@@ -65,7 +65,7 @@ class AdminFasilitasController extends Controller
             $id,
         ]);
 
-        return redirect()->route('admin.fasilitas.index');
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil diubah');
     }
 
     public function destroy($id)
@@ -73,6 +73,6 @@ class AdminFasilitasController extends Controller
 
         DB::delete('DELETE FROM fasilitas WHERE id_fasilitas = ?', [$id]);
 
-        return redirect()->route('admin.fasilitas.index');
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil dihapus');
     }
 }

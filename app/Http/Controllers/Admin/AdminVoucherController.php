@@ -37,14 +37,14 @@ class AdminVoucherController extends Controller
             $request->tanggal_kadaluarsa,
         ]);
 
-        return redirect()->route('admin.voucher.index');
+        return redirect()->route('admin.voucher.index')->with('success', 'Voucher berhasil ditambahkan');
     }
 
     public function edit($id)
     {
         $voucher = DB::select('SELECT * FROM voucher WHERE id_voucher = ?', [$id])[0];
 
-        return view('admin.voucher.edit');
+        return view('admin.voucher.edit', compact('voucher'));
     }
 
     public function update(Request $request, $id)
@@ -65,7 +65,7 @@ class AdminVoucherController extends Controller
             $id,
         ]);
 
-        return redirect()->route('admin.voucher.index');
+        return redirect()->route('admin.voucher.index')->with('success', 'Voucher berhasil diubah');
     }
 
     public function destroy($id)
@@ -73,6 +73,6 @@ class AdminVoucherController extends Controller
 
         DB::delete('DELETE FROM voucher WHERE id_voucher = ?', [$id]);
 
-        return redirect()->route('admin.voucher.index');
+        return redirect()->route('admin.voucher.index')->with('success', 'Voucher berhasil dihapus');
     }
 }
