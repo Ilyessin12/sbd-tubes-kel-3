@@ -15,19 +15,19 @@
                     <input type="hidden" name="id_customer" id="id_customer">
                     <div class="mb-3">
                         <label for="nama_customer" class="form-label">Nama Customer</label>
-                        <input type="text" class="form-control" id="nama_customer" name="nama_customer">
+                        <input type="text" class="form-control" id="nama_customer" name="nama_customer" required>
                     </div>
                     <div class="mb-3">
                         <label for="email_customer" class="form-label">Email Customer</label>
-                        <input type="text" class="form-control" id="email_customer" name="email_customer">
+                        <input type="text" class="form-control" id="email_customer" name="email_customer" required>
                     </div>
                     <div class="mb-3">
                         <label for="telp_customer" class="form-label">Telepon Customer</label>
-                        <input type="text" class="form-control" id="telp_customer" name="telp_customer">
+                        <input type="text" class="form-control" id="telp_customer" name="telp_customer" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <div class="mb-3">
                         <label for="status_member">Status Member</label>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="kuota_member" class="form-label">Kuota Member</label>
-                        <input type="text" class="form-control" id="kuota_member" name="kuota_member">
+                        <input type="text" class="form-control" id="kuota_member" name="kuota_member" required>
                     </div>
                     <a href="admin.php"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>

@@ -40,6 +40,24 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middlewar
 Route::redirect('/admin', '/admin/dashboard');
 
 
+// <!-- ? ==================== CRUD Admin ==================== ? -->
+
+//Customer
+Route::get('/admin/customer', [AdminCustomerController::class, 'index'])->middleware('admin')->name('admin.customer.index');
+Route::get('/admin/customer/create', [AdminCustomerController::class, 'create'])->middleware('admin');
+Route::post('/admin/customer', [AdminCustomerController::class, 'store'])->middleware('admin');
+Route::get('/admin/customer/{id}/edit', [AdminCustomerController::class, 'edit'])->middleware('admin');
+Route::patch('/admin/customer', [AdminCustomerController::class, 'update'])->middleware('admin');
+Route::delete('/admin/customer', [AdminCustomerController::class, 'delete'])->middleware('admin');
+
+//Booking
+Route::get('/admin/booking', [AdminBookingController::class, 'index'])->middleware('admin')->name('admin.booking.index');
+Route::get('/admin/booking/create', [AdminBookingController::class, 'create'])->middleware('admin');
+Route::post('/admin/booking', [AdminBookingController::class, 'store'])->middleware('admin');
+Route::get('/admin/booking/{id}/edit', [AdminBookingController::class, 'edit'])->middleware('admin');
+Route::patch('/admin/booking', [AdminBookingController::class, 'update'])->middleware('admin');
+Route::delete('/admin/booking', [AdminBookingController::class, 'delete'])->middleware('admin');
+
 //Ekstra
 Route::get('/admin/ekstra', [AdminEkstraController::class, 'index'])->middleware('admin')->name('admin.ekstra.index');
 Route::get('/admin/ekstra/create', [AdminEkstraController::class, 'create'])->middleware('admin');
@@ -63,22 +81,6 @@ Route::post('/admin/voucher', [AdminVoucherController::class, 'store'])->middlew
 Route::get('/admin/voucher/{id}/edit', [AdminVoucherController::class, 'edit'])->middleware('admin');
 Route::patch('/admin/voucher', [AdminVoucherController::class, 'update'])->middleware('admin');
 Route::delete('/admin/voucher', [AdminVoucherController::class, 'delete'])->middleware('admin');
-
-//Customer
-Route::get('/admin/customer', [AdminCustomerController::class, 'index'])->middleware('admin')->name('admin.customer.index');
-Route::get('/admin/customer/create', [AdminCustomerController::class, 'create'])->middleware('admin');
-Route::post('/admin/customer', [AdminCustomerController::class, 'store'])->middleware('admin');
-Route::get('/admin/customer/{id}/edit', [AdminCustomerController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/customer', [AdminCustomerController::class, 'update'])->middleware('admin');
-Route::delete('/admin/customer', [AdminCustomerController::class, 'delete'])->middleware('admin');
-
-//Booking
-Route::get('/admin/booking', [AdminBookingController::class, 'index'])->middleware('admin')->name('admin.booking.index');
-Route::get('/admin/booking/create', [AdminBookingController::class, 'create'])->middleware('admin');
-Route::post('/admin/booking', [AdminBookingController::class, 'store'])->middleware('admin');
-Route::get('/admin/booking/{id}/edit', [AdminBookingController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/booking', [AdminBookingController::class, 'update'])->middleware('admin');
-Route::delete('/admin/booking', [AdminBookingController::class, 'delete'])->middleware('admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

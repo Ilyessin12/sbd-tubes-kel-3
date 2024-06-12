@@ -15,22 +15,22 @@
                     <input type="hidden" name="id_voucher" id="id_voucher">
                     <div class="mb-3">
                         <label for="nama_voucher" class="form-label">Nama Voucher</label>
-                        <input type="text" class="form-control" id="nama_voucher" name="nama_voucher">
+                        <input type="text" class="form-control" id="nama_voucher" name="nama_voucher" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="presentase_diskon" class="form-label">Presentase Diskon</label>
-                        <input type="number" class="form-control" name="presentase_diskon" id="presentase_diskon">
+                        <input type="number" class="form-control" name="presentase_diskon" id="presentase_diskon" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
-                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai">
+                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="tanggal_kadaluarsa" class="form-label">Tanggal Kadaluarsa</label>
-                        <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa">
+                        <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa"  required>
                     </div>
 
                     <a href="admin.php"><button type="button" class="btn btn-secondary"

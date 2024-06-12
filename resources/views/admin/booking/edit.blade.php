@@ -15,7 +15,7 @@
                     <input type="hidden" name="id_booking" id="id_booking">
                     <div class="mb-3">
                         <label for="status_booking">Status Booking</label>
-                        <select class="form-select" name="status_booking">
+                        <select class="form-select" name="status_booking" required>
                             <option value="" selected>Pilih</option>
                             <option value="pending">Pending</option>
                             <option value="sukses">Sukses</option>
@@ -24,19 +24,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="tanggal_booking" class="form-label">Tanggal Booking</label>
-                        <input type="date" class="form-control" id="tanggal_booking" name="tanggal_booking">
+                        <input type="date" class="form-control" id="tanggal_booking" name="tanggal_booking" required>
                     </div>
                     <div class="mb-3">
                         <label for="jam_mulai" class="form-label">Jam Mulai</label>
-                        <input type="time" class="form-control" id="jam_mulai" name="jam_mulai">
+                        <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" required>
                     </div>
                     <div class="mb-3">
                         <label for="jam_selesai" class="form-label">Jam Selesai</label>
-                        <input type="time" class="form-control" id="jam_selesai" name="jam_selesai">
+                        <input type="time" class="form-control" id="jam_selesai" name="jam_selesai" required>
                     </div>
                     <div class="mb-3">
                         <label for="id_customer">Nama Customer</label>
-                        <select class="form-select" name="id_customer">
+                        <select class="form-select" name="id_customer" required>
                             <option value="" selected>Pilih</option>
                             @foreach ($customers as $row)
                                 <option value="{{$row->id_customer}}">{{($row->nama_customer)}}</option>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="id_fasilitas">Fasilitas</label>
-                        <select class="form-select" name="id_fasilitas">
+                        <select class="form-select" name="id_fasilitas" required>
                             <option value="" selected>Pilih</option>
                             @foreach ($fasilitas as $row)
                                 <option value="{{$row->id_fasilitas}}">{{($row->nama)}}</option>
