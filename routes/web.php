@@ -43,7 +43,9 @@ Route::get('/checkout/pay/{id}', 'App\Http\Controllers\Frontend\BookingControlle
 
 
 //Riwayat
-Route::get('/riwayat', [RiwayatController::class, 'index']);
+Route::get('/riwayat', [RiwayatController::class, 'index'])->name('frontend.riwayat');
+//hapus booking dari riwayat
+Route::get('/riwayat/{id}/delete', [RiwayatController::class, 'destroy'])->name('frontend.riwayat.delete');
 
 //Routing untuk Bagian Admin
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('admin');
