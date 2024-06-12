@@ -14,8 +14,8 @@
                     @csrf
                     <input type="hidden" name="id_ekstra" id="id_ekstra">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Ekstra</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
+                        <label for="nama_ekstra" class="form-label">Nama Ekstra</label>
+                        <input type="text" class="form-control" id="nama_ekstra" name="nama_ekstra" required>
                     </div>
 
                     <div class="mb-3">

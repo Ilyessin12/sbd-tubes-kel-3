@@ -14,8 +14,8 @@
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="id_fasilitas" id="id_fasilitas">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Fasilitas</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
+                        <label for="nama_fasilitas" class="form-label">Nama Fasilitas</label>
+                        <input type="text" class="form-control" id="nama_fasilitas" name="nama_fasilitas" required>
                     </div>
 
                     <div class="mb-3">
