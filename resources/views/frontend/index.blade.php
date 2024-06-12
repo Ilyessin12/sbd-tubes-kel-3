@@ -9,9 +9,14 @@
         </div>
     @endif
   <div class="container">
-    <h1>Welcome to KitSakit</h1>
-    <h2>Sini abang obatin</h2>
-    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    <h1>Welcome to GOR Seling</h1>
+    <h2>Insert something here</h2>
+    @guest
+    <a href="{{route('login')}}" class="btn-get-started scrollto">Get Started</a>
+    @endguest
+    @auth
+    <a href="{{route('frontend.booking')}}" class="btn-get-started scrollto">Get Started</a>
+    @endauth
   </div>
 </section><!-- End Hero -->
 
@@ -24,7 +29,7 @@
       <div class="row">
         <div class="col-lg-4 d-flex align-items-stretch">
           <div class="content">
-            <h3>Why Choose KitSakit?</h3>
+            <h3>Why Choose GOR Seling?</h3>
             <p>
               1001 alasan untuk memilih kami
             </p>
@@ -40,21 +45,21 @@
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-receipt"></i>
                   <h4>Cepat</h4>
-                  <p>Tenaga medis kami sangat satset</p>
+                  <p>Layanan kami sangat satset</p>
                 </div>
               </div>
               <div class="col-xl-4 d-flex align-items-stretch">
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-cube-alt"></i>
-                  <h4>Tepat</h4>
-                  <p>Tenaga medis kami tidak mungkin salah diagnosis (kayaknya)</p>
+                  <h4>Bersih</h4>
+                  <p>Fasilitas-fasilitas yang Kami Sediakan Dijamin Bersih</p>
                 </div>
               </div>
               <div class="col-xl-4 d-flex align-items-stretch">
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-images"></i>
                   <h4>Bersahabat</h4>
-                  <p>Tenaga medis kami sok asik</p>
+                  <p>Staff kami sok asik</p>
                 </div>
               </div>
             </div>
@@ -65,7 +70,7 @@
     </div>
   </section><!-- End Why Us Section -->
 
-  <!-- ======= About Section ======= -->
+  <!-- ======= About Section =======
   <section id="about" class="about">
     <div class="container-fluid">
 
@@ -102,9 +107,9 @@
       </div>
 
     </div>
-  </section><!-- End About Section -->
+  </section> End About Section -->
 
-  <!-- ======= Obat Section ======= -->
+  <!-- ======= Obat Section =======
   <section id="obat" class="services">
     <div class="container">
 
@@ -159,9 +164,9 @@
       </div>
 
     </div>
-  </section><!-- End Obat Section -->
+  </section> End Obat Section -->
 
-  <!-- ======= Doctors Section ======= -->
+  <!-- ======= Doctors Section =======
   <section id="doctors" class="doctors section-bg">
     <div class="container">
 
@@ -205,6 +210,6 @@
       </div>
 
     </div>
-  </section><!-- End Doctors Section -->
+  </section> End Doctors Section -->
 </main>
 @endsection

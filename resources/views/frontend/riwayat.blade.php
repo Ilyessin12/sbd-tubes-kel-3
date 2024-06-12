@@ -12,6 +12,7 @@
               {{ session('success') }}
           </div>
         @endif
+          <br>
           <h2>Riwayat</h2>
         </div>
 

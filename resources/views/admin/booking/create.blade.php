@@ -16,6 +16,7 @@
                             </ul>
                         </div>
                     @endif
+                    <br>
                     <h2>Tambah Booking</h2>
                 </div>
 

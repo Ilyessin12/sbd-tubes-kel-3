@@ -23,7 +23,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            
+            <br>
           <h2>Booking</h2>
           <a href="{{ route('admin.booking.create') }}" class="btn btn-success">+ Add Booking</a>
         </div>

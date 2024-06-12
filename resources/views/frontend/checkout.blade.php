@@ -5,6 +5,7 @@
 <main id="main" style="padding-top: 70px;">
     <section>
         <div class="container">
+        <br><br>
             <div class="card" style="width: 18 rem">
                 <div class="card-body">
                     <h5 class="card-title">Detail Booking</h5>
