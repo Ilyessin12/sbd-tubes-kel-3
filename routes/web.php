@@ -44,43 +44,44 @@ Route::redirect('/admin', '/admin/dashboard');
 
 //Customer
 Route::get('/admin/customer', [AdminCustomerController::class, 'index'])->middleware('admin')->name('admin.customer.index');
-Route::get('/admin/customer/create', [AdminCustomerController::class, 'create'])->middleware('admin');
-Route::post('/admin/customer', [AdminCustomerController::class, 'store'])->middleware('admin');
-Route::get('/admin/customer/{id}/edit', [AdminCustomerController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/customer', [AdminCustomerController::class, 'update'])->middleware('admin');
-Route::delete('/admin/customer', [AdminCustomerController::class, 'delete'])->middleware('admin');
+Route::get('/admin/customer/create', [AdminCustomerController::class, 'create'])->middleware('admin')->name('admin.customer.create');
+Route::post('/admin/customer', [AdminCustomerController::class, 'store'])->middleware('admin')->name('admin.customer.store');
+Route::get('/admin/customer/{id}/edit', [AdminCustomerController::class, 'edit'])->middleware('admin')->name('admin.customer.edit');
+Route::put('/admin/customer/{id}/edit', [AdminCustomerController::class, 'update'])->middleware('admin')->name('admin.customer.update');
+Route::get('/admin/customer/{id}/delete', [AdminCustomerController::class, 'destroy'])->middleware('admin')->name('admin.customer.delete');
 
 //Booking
 Route::get('/admin/booking', [AdminBookingController::class, 'index'])->middleware('admin')->name('admin.booking.index');
-Route::get('/admin/booking/create', [AdminBookingController::class, 'create'])->middleware('admin');
-Route::post('/admin/booking', [AdminBookingController::class, 'store'])->middleware('admin');
-Route::get('/admin/booking/{id}/edit', [AdminBookingController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/booking', [AdminBookingController::class, 'update'])->middleware('admin');
-Route::delete('/admin/booking', [AdminBookingController::class, 'delete'])->middleware('admin');
+Route::get('/admin/booking/create', [AdminBookingController::class, 'create'])->middleware('admin')->name('admin.booking.create');
+Route::post('/admin/booking', [AdminBookingController::class, 'store'])->middleware('admin')->name('admin.booking.store');
+Route::get('/admin/booking/{id}/edit', [AdminBookingController::class, 'edit'])->middleware('admin')->name('admin.booking.edit');
+Route::put('/admin/booking/{id}/edit', [AdminBookingController::class, 'update'])->middleware('admin')->name('admin.booking.update');
+Route::get('/admin/booking/{id}/delete', [AdminBookingController::class, 'destroy'])->middleware('admin')->name('admin.booking.delete');
 
 //Ekstra
 Route::get('/admin/ekstra', [AdminEkstraController::class, 'index'])->middleware('admin')->name('admin.ekstra.index');
-Route::get('/admin/ekstra/create', [AdminEkstraController::class, 'create'])->middleware('admin');
-Route::post('/admin/ekstra', [AdminEkstraController::class, 'store'])->middleware('admin');
-Route::get('/admin/ekstra/{id}/edit', [AdminEkstraController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/ekstra', [AdminEkstraController::class, 'update'])->middleware('admin');
-Route::delete('/admin/ekstra', [AdminEkstraController::class, 'delete'])->middleware('admin');
+Route::get('/admin/ekstra/create', [AdminEkstraController::class, 'create'])->middleware('admin')->name('admin.ekstra.create');
+Route::post('/admin/ekstra', [AdminEkstraController::class, 'store'])->middleware('admin')->name('admin.ekstra.store');
+Route::get('/admin/ekstra/{id}/edit', [AdminEkstraController::class, 'edit'])->middleware('admin')->name('admin.ekstra.edit');
+Route::put('/admin/ekstra/{id}/edit', [AdminEkstraController::class, 'update'])->middleware('admin')->name('admin.ekstra.update');
+Route::get('/admin/ekstra/{id}/delete', [AdminEkstraController::class, 'destroy'])->middleware('admin')->name('admin.ekstra.delete');
 
 //Fasilitas
 Route::get('/admin/fasilitas', [AdminFasilitasController::class, 'index'])->middleware('admin')->name('admin.fasilitas.index');
-Route::get('/admin/fasilitas/create', [AdminFasilitasController::class, 'create'])->middleware('admin');
-Route::post('/admin/fasilitas', [AdminFasilitasController::class, 'store'])->middleware('admin');
-Route::get('/admin/fasilitas/{id}/edit', [AdminFasilitasController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/fasilitas', [AdminFasilitasController::class, 'update'])->middleware('admin');
-Route::delete('/admin/fasilitas', [AdminFasilitasController::class, 'delete'])->middleware('admin');
+Route::get('/admin/fasilitas/create', [AdminFasilitasController::class, 'create'])->middleware('admin')->name('admin.fasilitas.create');
+Route::post('/admin/fasilitas', [AdminFasilitasController::class, 'store'])->middleware('admin')->name('admin.fasilitas.store');
+Route::get('/admin/fasilitas/{id}/edit', [AdminFasilitasController::class, 'edit'])->middleware('admin')->name('admin.fasilitas.edit');
+Route::put('/admin/fasilitas/{id}/edit', [AdminFasilitasController::class, 'update'])->middleware('admin')->name('admin.fasilitas.update');
+Route::get('/admin/fasilitas/{id}/delete', [AdminFasilitasController::class, 'destroy'])->middleware('admin')->name('admin.fasilitas.delete');
 
 //Voucher
 Route::get('/admin/voucher', [AdminVoucherController::class, 'index'])->middleware('admin')->name('admin.voucher.index');
-Route::get('/admin/voucher/create', [AdminVoucherController::class, 'create'])->middleware('admin');
-Route::post('/admin/voucher', [AdminVoucherController::class, 'store'])->middleware('admin');
-Route::get('/admin/voucher/{id}/edit', [AdminVoucherController::class, 'edit'])->middleware('admin');
-Route::patch('/admin/voucher', [AdminVoucherController::class, 'update'])->middleware('admin');
-Route::delete('/admin/voucher', [AdminVoucherController::class, 'delete'])->middleware('admin');
+Route::get('/admin/voucher/create', [AdminVoucherController::class, 'create'])->middleware('admin')->name('admin.voucher.create');
+Route::post('/admin/voucher', [AdminVoucherController::class, 'store'])->middleware('admin')->name('admin.voucher.store');
+Route::get('/admin/voucher/{id}/edit', [AdminVoucherController::class, 'edit'])->middleware('admin')->name('admin.voucher.edit');
+Route::put('/admin/voucher/{id}/edit', [AdminVoucherController::class, 'update'])->middleware('admin')->name('admin.voucher.update');
+Route::get('/admin/voucher/{id}/delete', [AdminVoucherController::class, 'destroy'])->middleware('admin')->name('admin.voucher.delete');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
