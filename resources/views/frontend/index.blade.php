@@ -9,13 +9,13 @@
         </div>
     @endif
   <div class="container">
-    <h1>Welcome to GOR Seling</h1>
-    <h2>Insert something here</h2>
+    <h1>Selamat Datang di GOR Seling!</h1>
+    <h2>Melayani dan Menjembatani</h2>
     @guest
-    <a href="{{route('login')}}" class="btn-get-started scrollto">Get Started</a>
+    <a href="{{route('login')}}" class="btn-get-started scrollto">Booking Sekarang</a>
     @endguest
     @auth
-    <a href="{{route('frontend.booking')}}" class="btn-get-started scrollto">Get Started</a>
+    <a href="{{route('frontend.booking')}}" class="btn-get-started scrollto">Booking Sekarang</a>
     @endauth
   </div>
 </section><!-- End Hero -->
@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-lg-4 d-flex align-items-stretch">
           <div class="content">
-            <h3>Why Choose GOR Seling?</h3>
+            <h3>Mengapa pilih GOR Seling?</h3>
             <p>
               1001 alasan untuk memilih kami
             </p>
@@ -45,21 +45,21 @@
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-receipt"></i>
                   <h4>Cepat</h4>
-                  <p>Layanan kami sangat satset</p>
+                  <p>Layanan kami gerak cepat</p>
                 </div>
               </div>
               <div class="col-xl-4 d-flex align-items-stretch">
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-cube-alt"></i>
                   <h4>Bersih</h4>
-                  <p>Fasilitas-fasilitas yang Kami Sediakan Dijamin Bersih</p>
+                  <p>Fasilitas-fasilitas yang Kami Sediakan Dijamin higienis</p>
                 </div>
               </div>
               <div class="col-xl-4 d-flex align-items-stretch">
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-images"></i>
                   <h4>Bersahabat</h4>
-                  <p>Staff kami sok asik</p>
+                  <p>Staff kami sangat ramah</p>
                 </div>
               </div>
             </div>
