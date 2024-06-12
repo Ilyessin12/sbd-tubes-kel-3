@@ -7,10 +7,20 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <br>
                     <h2>Tambah Voucher</h2>
                 </div>
 
-                <form action="{{url('/admin/voucher')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="{{route('admin.voucher.store')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id_voucher" id="id_voucher">
                     <div class="mb-3">
@@ -33,7 +43,7 @@
                         <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa" required>
                     </div>
 
-                    <a href="{{('/admin/voucher')}}"><button type="button" class="btn btn-secondary"
+                    <a href="{{route('admin.voucher.index')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
                         form="form-add">Tambah Voucher</button>

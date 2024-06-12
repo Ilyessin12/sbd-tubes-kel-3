@@ -7,10 +7,20 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <br>
                     <h2>Tambah Ekstra</h2>
                 </div>
 
-                <form action="{{url('/admin/ekstra')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="{{route('admin.ekstra.store')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id_ekstra" id="id_ekstra">
                     <div class="mb-3">
@@ -28,7 +38,7 @@
                         <input type="number" class="form-control" name="harga" id="harga" required>
                     </div>
 
-                    <a href="{{url('/admin/ekstra')}}"><button type="button" class="btn btn-secondary"
+                    <a href="{{route('admin.ekstra.index')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
                         form="form-add">Tambah Ekstra</button>

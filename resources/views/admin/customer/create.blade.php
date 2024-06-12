@@ -7,6 +7,16 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <br>
                     <h2>Tambah Customer</h2>
                 </div>
 
@@ -60,7 +70,7 @@
                         <label for="kuota_member" class="form-label">Kuota Member</label>
                         <input type="number" class="form-control" id="kuota_member" name="kuota_member" required>
                     </div>
-                    <a href="{{url('/admin/customer')}}"><button type="button" class="btn btn-secondary"
+                    <a href="{{route('admin.customer.index')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
                         form="form-add">Tambah Customer</button>

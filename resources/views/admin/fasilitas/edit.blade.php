@@ -7,12 +7,22 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <br>
                     <h2>Edit Fasilitas</h2>
                 </div>
 
-                <form action="/admin/fasilitas" method="patch" role="form" id="form-add" enctype="multipart/form-data">
-                    <input type="hidden" name="id" id="id">
-                    <input type="hidden" name="id_fasilitas" id="id_fasilitas">
+                <form action="{{ route('admin.fasilitas.update', $fasilitas->id_fasilitas) }}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="nama_fasilitas" class="form-label">Nama Fasilitas</label>
                         <input type="text" class="form-control" id="nama_fasilitas" name="nama_fasilitas" required>
@@ -33,10 +43,10 @@
                         <input type="text" class="form-control" id="jenis_kegiatan" name="jenis_kegiatan" required>
                     </div>
 
-                    <a href="admin.php"><button type="button" class="btn btn-secondary"
+                    <a href="{{route('admin.fasilitas.index')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
-                        form="form-add">Tambah Dokter</button>
+                        form="form-add">Update Fasilitas</button>
                 </form>
 
             </div>

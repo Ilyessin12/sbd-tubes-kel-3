@@ -7,20 +7,30 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <br>
                     <h2>Edit Voucher</h2>
                 </div>
 
-                <form action="/admin/voucher" method="patch" role="form" id="form-add" enctype="multipart/form-data">
-                    <input type="hidden" name="id" id="id">
-                    <input type="hidden" name="id_voucher" id="id_voucher">
+                <form action="{{ route('admin.voucher.update', $voucher->id_voucher) }}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="nama_voucher" class="form-label">Nama Voucher</label>
                         <input type="text" class="form-control" id="nama_voucher" name="nama_voucher" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="presentase_diskon" class="form-label">Presentase Diskon</label>
-                        <input type="number" class="form-control" name="presentase_diskon" id="presentase_diskon" required>
+                        <label for="persentase_diskon" class="form-label">Persentase Diskon</label>
+                        <input type="number" class="form-control" name="persentase_diskon" id="persentase_diskon" required>
                     </div>
 
                     <div class="mb-3">
@@ -33,10 +43,10 @@
                         <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa"  required>
                     </div>
 
-                    <a href="admin.php"><button type="button" class="btn btn-secondary"
+                    <a href="{{route('admin.voucher.index')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
-                        form="form-add">Tambah Dokter</button>
+                        form="form-add">Update Voucher</button>
                 </form>
 
             </div>

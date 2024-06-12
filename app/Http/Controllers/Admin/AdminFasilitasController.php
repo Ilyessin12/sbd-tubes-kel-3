@@ -23,15 +23,15 @@ class AdminFasilitasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_fasilitas' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:255',
             'harga' => 'required|integer',
             'jenis_kegiatan' => 'required|string|max:255',
         ]);
 
-        DB::insert('INSERT INTO fasilitas (nama, deskripsi, harga, jenis_kegiatan)
+        DB::insert('INSERT INTO fasilitas (nama_fasilitas, deskripsi, harga, jenis_kegiatan)
         VALUES (?, ?, ?, ?)', [
-            $request->nama,
+            $request->nama_fasilitas,
             $request->deskripsi,
             $request->harga,
             $request->jenis_kegiatan,
@@ -50,15 +50,15 @@ class AdminFasilitasController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_fasilitas' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:255',
             'harga' => 'required|integer',
             'jenis_kegiatan' => 'required|string|max:255',
         ]);
 
-        DB::update('UPDATE fasilitas SET nama = ?, deskripsi = ?, harga = ?, jenis_kegiatan = ?
+        DB::update('UPDATE fasilitas SET nama_fasilitas = ?, deskripsi = ?, harga = ?, jenis_kegiatan = ?
         WHERE id_fasilitas = ?', [
-            $request->nama,
+            $request->nama_fasilitas,
             $request->deskripsi,
             $request->harga,
             $request->jenis_kegiatan,

@@ -7,6 +7,7 @@
       <div class="container">
 
         <div class="section-title">
+          <br>
           <h2>Customer</h2>
           <a href="{{ route('admin.customer.create') }}" class="btn btn-success">+ Add Customer</a>
         </div>

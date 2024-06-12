@@ -7,11 +7,21 @@
             <div class="container">
 
                 <div class="section-title">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h2>Edit Ekstra</h2>
                 </div>
 
-                <form action="/admin/ekstra" method="patch" role="form" id="form-add" enctype="multipart/form-data">
-                <input type="hidden" name="id_ekstra" id="id_ekstra">
+                <form action="{{ route('admin.ekstra.update', $ekstra->id_ekstra) }}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                     <div class="mb-3">
                         <label for="nama_ekstra" class="form-label">Nama Ekstra</label>
                         <input type="text" class="form-control" id="nama_ekstra" name="nama_ekstra" required>
@@ -27,7 +37,7 @@
                         <input type="number" class="form-control" name="harga" id="harga" required>
                     </div>
 
-                    <a href="admin.php"><button type="button" class="btn btn-secondary"
+                    <a href="{{route('admin.ekstra.index')}}"><button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancel</button></a>
                     <button type="submit" class="btn btn-primary text-white" name="btn-add" id="btn-add"
                         form="form-add">Update Ekstra</button>

@@ -23,14 +23,14 @@ class AdminEkstraController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_ekstra' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:255',
             'harga' => 'required|integer',
         ]);
 
-        DB::insert('INSERT INTO ekstra (nama, deskripsi, harga)
+        DB::insert('INSERT INTO ekstra (nama_ekstra, deskripsi, harga)
         VALUES (?, ?, ?)', [
-            $request->nama,
+            $request->nama_ekstra,
             $request->deskripsi,
             $request->harga,
         ]);
@@ -48,14 +48,14 @@ class AdminEkstraController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_ekstra' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:255',
             'harga' => 'required|integer',
         ]);
 
-        DB::update('UPDATE ekstra SET nama = ?, deskripsi = ?, harga = ?
+        DB::update('UPDATE ekstra SET nama_ekstra = ?, deskripsi = ?, harga = ?
         WHERE id_ekstra = ?', [
-            $request->nama,
+            $request->nama_ekstra,
             $request->deskripsi,
             $request->harga,
             $id,
