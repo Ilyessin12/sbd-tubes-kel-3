@@ -35,14 +35,14 @@ class AdminEkstraController extends Controller
             $request->harga,
         ]);
 
-        return redirect()->route('admin.ekstra.index');
+        return redirect()->route('admin.ekstra.index')->with('success', 'Ekstra berhasil ditambahkan');
     }
 
     public function edit($id)
     {
         $ekstra = DB::select('SELECT * FROM ekstra WHERE id_ekstra = ?', [$id])[0];
 
-        return view('admin.ekstra.edit');
+        return view('admin.ekstra.edit', compact('ekstra'));
     }
 
     public function update(Request $request, $id)
@@ -61,7 +61,7 @@ class AdminEkstraController extends Controller
             $id,
         ]);
 
-        return redirect()->route('admin.ekstra.index');
+        return redirect()->route('admin.ekstra.index')->with('success', 'Ekstra berhasil diubah');
     }
 
     public function destroy($id)
@@ -69,6 +69,6 @@ class AdminEkstraController extends Controller
 
         DB::delete('DELETE FROM ekstra WHERE id_ekstra = ?', [$id]);
 
-        return redirect()->route('admin.ekstra.index');
+        return redirect()->route('admin.ekstra.index')->with('success', 'Ekstra berhasil dihapus');
     }
 }

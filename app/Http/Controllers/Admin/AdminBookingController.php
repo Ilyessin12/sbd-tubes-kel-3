@@ -10,7 +10,7 @@ class AdminBookingController extends Controller
 {
     public function index()
     {
-        $bookings = DB::select('SELECT booking.*, customer.nama_customer, fasilitas.nama, voucher.nama_voucher, ekstra.nama FROM booking 
+        $bookings = DB::select('SELECT booking.*, customer.nama_customer, fasilitas.nama_fasilitas, voucher.nama_voucher, ekstra.nama_ekstra FROM booking 
         LEFT JOIN customer ON booking.id_customer = customer.id_customer 
         LEFT JOIN fasilitas ON booking.id_fasilitas = fasilitas.id_fasilitas
         LEFT JOIN voucher ON booking.id_voucher = voucher.id_voucher
@@ -22,9 +22,9 @@ class AdminBookingController extends Controller
     public function create()
     {
         $customers = DB::select('SELECT id_customer, nama_customer FROM customer');
-        $fasilitas = DB::select('SELECT id_fasilitas, nama FROM fasilitas');
+        $fasilitas = DB::select('SELECT id_fasilitas, nama_fasilitas FROM fasilitas');
         $vouchers = DB::select('SELECT id_voucher, nama_voucher FROM voucher');
-        $extras = DB::select('SELECT id_ekstra, nama FROM ekstra');
+        $extras = DB::select('SELECT id_ekstra, nama_ekstra FROM ekstra');
         
         return view('admin.booking.create', compact('customers', 'fasilitas', 'vouchers', 'extras'));
     }
@@ -58,12 +58,12 @@ class AdminBookingController extends Controller
             $request->id_ekstra,
         ]);
 
-        return redirect()->route('admin.booking.index');
+        return redirect()->route('admin.booking.index')->with('success', 'Booking berhasil ditambahkan');
     }
 
     public function edit($id)
     {
-        $bookings = DB::select('SELECT booking.*, customer.nama_customer, fasilitas.nama, voucher.nama_voucher, ekstra.nama FROM booking 
+        $booking = DB::select('SELECT booking.*, customer.nama_customer, fasilitas.nama_fasilitas, voucher.nama_voucher, ekstra.nama_ekstra FROM booking 
         LEFT JOIN customer ON booking.id_customer = customer.id_customer 
         LEFT JOIN fasilitas ON booking.id_fasilitas = fasilitas.id_fasilitas
         LEFT JOIN voucher ON booking.id_voucher = voucher.id_voucher
@@ -71,11 +71,11 @@ class AdminBookingController extends Controller
         WHERE id_booking = ?', [$id])[0];
 
         $customers = DB::select('SELECT id_customer, nama_customer FROM customer');
-        $fasilitas = DB::select('SELECT id_fasilitas, nama FROM fasilitas');
+        $fasilitas = DB::select('SELECT id_fasilitas, nama_fasilitas FROM fasilitas');
         $vouchers = DB::select('SELECT id_voucher, nama_voucher FROM voucher');
-        $extras = DB::select('SELECT id_ekstra, nama FROM ekstra');
+        $extras = DB::select('SELECT id_ekstra, nama_ekstra FROM ekstra');
 
-        return view('admin.booking.edit', compact('bookings', 'customers', 'fasilitas', 'vouchers', 'extras'));
+        return view('admin.booking.edit', compact('booking', 'customers', 'fasilitas', 'vouchers', 'extras'));
     }
 
     public function update(Request $request, $id)
@@ -108,13 +108,13 @@ class AdminBookingController extends Controller
             $id,
         ]);
 
-        return redirect()->route('admin.booking.index');
+        return redirect()->route('admin.booking.index')->with('success', 'Booking berhasil diubah');
     }
 
     public function destroy($id)
     {
         DB::delete('DELETE FROM booking WHERE id_booking = ?', [$id]);
 
-        return redirect()->route('admin.booking.index');
+        return redirect()->route('admin.booking.index')->with('success', 'Booking berhasil dihapus');
     }
 }
