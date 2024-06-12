@@ -23,8 +23,6 @@ return new class extends Migration
                 id_fasilitas BIGINT UNSIGNED NOT NULL,
                 id_voucher BIGINT UNSIGNED NULL DEFAULT NULL,
                 id_ekstra BIGINT UNSIGNED NULL DEFAULT NULL,
-                created_at TIMESTAMP NULL DEFAULT NULL,
-                updated_at TIMESTAMP NULL DEFAULT NULL,
                 FOREIGN KEY (id_customer) REFERENCES customer(id_customer),
                 FOREIGN KEY (id_fasilitas) REFERENCES fasilitas(id_fasilitas),
                 FOREIGN KEY (id_voucher) REFERENCES voucher(id_voucher),

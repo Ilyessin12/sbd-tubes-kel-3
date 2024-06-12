@@ -13,11 +13,9 @@ return new class extends Migration
         DB::statement("
             CREATE TABLE ekstra (
                 id_ekstra BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                nama VARCHAR(255) NOT NULL,
+                nama_ekstra VARCHAR(255) NOT NULL,
                 deskripsi VARCHAR(255) NOT NULL,
-                harga INT NOT NULL,
-                created_at TIMESTAMP NULL DEFAULT NULL,
-                updated_at TIMESTAMP NULL DEFAULT NULL
+                harga INT NOT NULL
             ) ENGINE=InnoDB;
         ");
     }

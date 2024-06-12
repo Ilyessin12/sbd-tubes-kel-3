@@ -18,9 +18,7 @@ return new class extends Migration
                 nama_voucher VARCHAR(255) NOT NULL,
                 persentase_diskon INT NOT NULL,
                 tanggal_mulai DATE NOT NULL,
-                tanggal_kadaluarsa DATE NOT NULL,
-                created_at TIMESTAMP NULL DEFAULT NULL,
-                updated_at TIMESTAMP NULL DEFAULT NULL
+                tanggal_kadaluarsa DATE NOT NULL
             ) ENGINE=InnoDB;
         ");
     }

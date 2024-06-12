@@ -23,9 +23,7 @@ return new class extends Migration
                 tanggal_selesai DATE NULL,
                 role VARCHAR(255) NOT NULL DEFAULT 'user',
                 kuota_member INT NOT NULL DEFAULT 0,
-                remember_token VARCHAR(100) NULL,
-                created_at TIMESTAMP NULL,
-                updated_at TIMESTAMP NULL
+                remember_token VARCHAR(100) NULL
             ) ENGINE=InnoDB;
         ");
     }
