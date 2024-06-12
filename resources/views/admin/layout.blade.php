@@ -69,7 +69,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="{{url('/admin/dashboard')}}">Dashboard</a></li>
           <li><a class="nav-link scrollto" href="{{url('/admin/booking')}}">Booking</a></li>
-          <li><a class="nav-link scrollto" href="{{url('/admin/customers')}}">Customers</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/admin/customer')}}">Customers</a></li>
           <li><a class="nav-link scrollto" href="{{url('/admin/ekstra')}}">Ekstra</a></li>
           <li><a class="nav-link scrollto" href="{{url('/admin/fasilitas')}}">Fasilitas</a></li>
           <li><a class="nav-link scrollto" href="{{url('/admin/voucher')}}">Voucher</a></li>

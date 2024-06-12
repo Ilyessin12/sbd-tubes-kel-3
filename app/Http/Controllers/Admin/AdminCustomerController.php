@@ -50,8 +50,7 @@ class AdminCustomerController extends Controller
             $request->kuota_member,
         ]);
 
-        return redirect()->route('admin.customer.index');
-
+        return redirect()->route('admin.customer.index')->with('success', 'Customer berhasil ditambahkan');
 
     }
 
@@ -59,7 +58,7 @@ class AdminCustomerController extends Controller
     {
         $customer = DB::select('SELECT * FROM customer WHERE id_customer = ?', [$id])[0];
 
-        return view('admin.customer.edit');
+        return view('admin.customer.edit', compact('customer'));
     }
 
     public function update(Request $request, $id)
@@ -93,13 +92,13 @@ class AdminCustomerController extends Controller
         ]);
 
 
-        return redirect()->route('admin.customer.index');
+        return redirect()->route('admin.customer.index')->with('success', 'Customer berhasil diubah');
     }
 
     public function destroy($id)
     {
         DB::delete('DELETE FROM customer WHERE id_customer = ?', [$id]);
 
-        return redirect()->route('admin.customer.index');
+        return redirect()->route('admin.customer.index')->with('success', 'Customer berhasil dihapus');
     }
 }

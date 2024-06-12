@@ -10,7 +10,7 @@
                     <h2>Tambah Customer</h2>
                 </div>
 
-                <form action="{{url('/admin/customer')}}" method="post" role="form" id="form-add" enctype="multipart/form-data">
+                <form action="{{ route('admin.customer.store') }}" method="post" role="form" id="form-add" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="id_customer" id="id_customer">
@@ -36,7 +36,7 @@
                             name="status_member" required>
                             <option value="" selected disabled hidden>Pilih</option>
                             <option value="member">Member</option>
-                            <option value="nonmember">Non-member</option>
+                            <option value="non-member">Non-member</option>
                         </select>
                     </div>
                     <div class="mb-3">
